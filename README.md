@@ -53,3 +53,5 @@ cp .env.example .env
 - The app stores uploads, interview sessions, and reports in `storage/`.
 - Only three interview questions are asked for the test flow, as requested.
 - See `MODEL_SELECTION.md` for the current open-model recommendation and deployment rationale.
+# HireSense-AI
+An AI-powered interview system that analyzes resumes, conducts adaptive technical interviews, and generates structured, unbiased candidate evaluation reports.  Built with a focus on fairness, consistency, and explainability. 
