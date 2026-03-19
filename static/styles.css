@@ -1,0 +1,359 @@
+:root {
+  --bg: #f5efe6;
+  --ink: #18212f;
+  --muted: #5e6978;
+  --panel: rgba(255, 252, 246, 0.82);
+  --line: rgba(24, 33, 47, 0.1);
+  --accent: #c75c34;
+  --accent-dark: #8d3516;
+  --accent-soft: #f5c4a9;
+  --teal: #1f7a8c;
+  --green: #2d6a4f;
+  --shadow: 0 22px 60px rgba(57, 45, 34, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(245, 196, 169, 0.65), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(31, 122, 140, 0.18), transparent 22%),
+    linear-gradient(135deg, #f8f3eb, #f0e5d7 50%, #f7f5ef);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page-shell {
+  width: min(1240px, calc(100% - 32px));
+  margin: 0 auto;
+  height: 100vh;
+  padding: 20px 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+}
+
+.hero-panel,
+.interview-shell {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow);
+  border-radius: 30px;
+  backdrop-filter: blur(22px);
+}
+
+.hero-panel {
+  padding: 26px 32px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1;
+  margin: 16px 0;
+}
+
+.hero-copy p {
+  color: var(--muted);
+  max-width: 60ch;
+  font-size: 1.05rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.feature-grid article,
+.hero-card,
+.profile-panel,
+.chat-panel,
+.insight-panel {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+  border-radius: 24px;
+}
+
+.feature-grid article {
+  padding: 18px;
+}
+
+.feature-grid p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.card-glow {
+  position: absolute;
+  inset: auto -70px -80px auto;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(199, 92, 52, 0.28), transparent 64%);
+  pointer-events: none;
+}
+
+.status-pill,
+.question-badge,
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.status-pill,
+.question-badge {
+  background: rgba(199, 92, 52, 0.12);
+  color: var(--accent-dark);
+  padding: 8px 14px;
+}
+
+.upload-box {
+  display: grid;
+  gap: 10px;
+  padding: 28px 18px;
+  border: 1.5px dashed rgba(199, 92, 52, 0.35);
+  border-radius: 20px;
+  text-align: center;
+  color: var(--muted);
+  margin: 18px 0;
+  cursor: pointer;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.primary-btn,
+.secondary-btn {
+  appearance: none;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.primary-btn {
+  width: 100%;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 16px 28px rgba(141, 53, 22, 0.2);
+}
+
+.secondary-btn {
+  color: var(--ink);
+  background: rgba(31, 122, 140, 0.12);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.helper-text {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.interview-shell {
+  padding: 26px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.session-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.4fr 0.85fr;
+  gap: 18px;
+  min-height: 0;
+}
+
+.profile-panel,
+.chat-panel,
+.insight-panel {
+  padding: 20px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 280px;
+  max-height: 280px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.message {
+  padding: 16px 18px;
+  border-radius: 20px;
+  max-width: 92%;
+  line-height: 1.55;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: rgba(31, 122, 140, 0.1);
+  border: 1px solid rgba(31, 122, 140, 0.16);
+}
+
+.message.user {
+  align-self: flex-end;
+  background: rgba(199, 92, 52, 0.1);
+  border: 1px solid rgba(199, 92, 52, 0.15);
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.resume-feedback {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+  border-radius: 18px;
+}
+
+.resume-feedback p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.voice-stage {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(31, 122, 140, 0.08), rgba(199, 92, 52, 0.08));
+}
+
+.voice-orb {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.85), transparent 20%),
+    linear-gradient(135deg, var(--teal), var(--accent));
+  box-shadow: 0 0 0 0 rgba(31, 122, 140, 0.28);
+}
+
+.voice-orb.speaking,
+.voice-orb.recording {
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 122, 140, 0.28); }
+  70% { transform: scale(1.04); box-shadow: 0 0 0 22px rgba(31, 122, 140, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 122, 140, 0); }
+}
+
+.skill-wrap,
+.summary-list,
+.report-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill,
+.summary-list span,
+.report-links a,
+.score-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 16px;
+}
+
+.skill-pill,
+.summary-list span {
+  padding: 8px 12px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.score-card {
+  padding: 14px;
+}
+
+.report-links a {
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--teal);
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+#candidate-meta p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+@media (max-width: 1080px) {
+  .hero-panel,
+  .session-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

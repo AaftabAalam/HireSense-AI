@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ app_name }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <span class="eyebrow">AI Interview Studio</span>
+          <h1>Resume-aware technical interviews with live scoring and evidence-based reporting.</h1>
+          <p>
+            Upload a candidate resume, let the AI interviewer lead the session, and produce a polished evaluation report
+            with transcript, scores, skill overlap, and analytics.
+          </p>
+          <div class="feature-grid">
+            <article>
+              <h3>Resume-led questions</h3>
+              <p>The interviewer reads the candidate profile first and generates up to three technical questions.</p>
+            </article>
+            <article>
+              <h3>Two-way interaction</h3>
+              <p>Candidate answers by text or voice. Clarifications are allowed, but the AI never leaks answers.</p>
+            </article>
+            <article>
+              <h3>Decision-ready report</h3>
+              <p>Every interview ends with structured JSON and a styled HTML summary for hiring review.</p>
+            </article>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="status-pill">Production-style flow</div>
+          <h2>Resume Intake</h2>
+          <form id="resume-form">
+            <label class="upload-box" for="resume-file">
+              <input id="resume-file" name="resume" type="file" accept=".pdf,.doc,.docx,.txt" required />
+              <span>Drop a resume here or click to upload</span>
+              <small>PDF, DOCX, or TXT</small>
+            </label>
+            <button type="submit" class="primary-btn">Analyze Resume</button>
+          </form>
+          <div id="resume-feedback" class="resume-feedback hidden"></div>
+          <button id="launch-btn" class="primary-btn hidden" type="button">Launch AI Voice Interview</button>
+          <p class="helper-text" id="upload-status">No interview session started yet.</p>
+        </div>
+      </section>
+
+      <section class="interview-shell hidden" id="interview-shell">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">Live Session</span>
+            <h2>Candidate Interview Console</h2>
+          </div>
+          <div class="question-badge" id="question-badge">Question 1 / 3</div>
+        </div>
+
+        <div class="session-grid">
+          <aside class="profile-panel">
+            <h3>Resume Snapshot</h3>
+            <div id="candidate-meta"></div>
+            <div class="skill-wrap" id="resume-skills"></div>
+          </aside>
+
+          <main class="chat-panel">
+            <div id="chat-log" class="chat-log"></div>
+            <div class="voice-stage">
+              <div class="voice-orb" id="voice-orb"></div>
+              <div>
+                <h3>Voice-Only Candidate Response</h3>
+                <p class="helper-text">Listen to the AI interviewer, then press record and answer by speaking only.</p>
+              </div>
+            </div>
+            <div class="action-row">
+              <button type="button" class="secondary-btn" id="record-btn">Record Answer</button>
+            </div>
+            <p class="helper-text" id="answer-status">Upload and launch the interview to begin the spoken session.</p>
+          </main>
+
+          <aside class="insight-panel">
+            <h3>Live Evaluation</h3>
+            <div id="live-scores" class="score-grid"></div>
+            <div id="live-summary" class="summary-list"></div>
+            <div id="report-links" class="report-links"></div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

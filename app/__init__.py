@@ -1,0 +1,1 @@
+"""Interview Analyzer application package."""
